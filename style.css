@@ -1158,3 +1158,111 @@ code {
 .shake {
     animation: shake 0.4s ease;
 }
+
+
+/* ========================================
+   DECRYPTED PDF SVG DOCUMENT
+   ======================================== */
+
+/*
+   The decrypted PDF is rendered as an SVG in
+   index.html. These rules style the SVG page
+   and its text without changing the existing
+   explorer or logic-gate screens.
+*/
+
+.viewer-document {
+    background: #070d19;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    font-family: var(--font-body);
+}
+
+/* SVG PDF page */
+.pdf-document-svg {
+    display: block;
+    width: min(900px, 100%);
+    height: auto;
+    margin: 0 auto;
+    overflow: visible;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.08));
+}
+
+/* Main document title */
+.pdf-document-svg .svg-title {
+    fill: var(--accent-cyan);
+    font-family: var(--font-display);
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Document subtitle */
+.pdf-document-svg .svg-subtitle {
+    fill: #b8c7d9;
+    font-family: var(--font-mono);
+    font-size: 17px;
+    font-weight: 400;
+}
+
+/* Section headings */
+.pdf-document-svg .svg-heading {
+    fill: var(--accent-cyan);
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+/* Metadata labels */
+.pdf-document-svg .svg-label {
+    fill: var(--accent-green);
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* PDF body text */
+.pdf-document-svg .svg-text {
+    fill: #d5deea;
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 400;
+}
+
+/* PDF divider lines */
+.pdf-document-svg .svg-line {
+    stroke: #24415c;
+    stroke-width: 1;
+}
+
+/* Page number */
+.pdf-document-svg .svg-page {
+    fill: #718096;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* Keep the SVG readable on smaller screens */
+@media (max-width: 900px) {
+    .viewer-document {
+        padding: 14px;
+    }
+
+    .pdf-document-svg {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .viewer-document {
+        padding: 8px;
+    }
+
+    .pdf-document-svg {
+        width: 100%;
+    }
+}
