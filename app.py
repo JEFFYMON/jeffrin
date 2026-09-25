@@ -10,22 +10,38 @@ st.set_page_config(
 
 base = Path(__file__).parent
 
-html = (base / "index.html").read_text()
-css = (base / "style.css").read_text()
-js = (base / "app.js").read_text()
+# Read project files
+html = (base / "index.html").read_text(encoding="utf-8")
+css = (base / "style.css").read_text(encoding="utf-8")
+js = (base / "app.js").read_text(encoding="utf-8")
 
-html = html.replace(
-    '<link rel="stylesheet" href="style.css">',
-    f"<style>{css}</style>"
-)
+# Build a complete HTML document
+full_html = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-html = html.replace(
-    '<script src="app.js"></script>',
-    f"<script>{js}</script>"
-)
+    <style>
+        {css}
+    </style>
+</head>
+
+<body>
+
+    {html}
+
+    <script>
+        {js}
+    </script>
+
+</body>
+</html>
+"""
 
 components.html(
-    html,
-    height=1000,
+    full_html,
+    height=1400,
     scrolling=True
 )
