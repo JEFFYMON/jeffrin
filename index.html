@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure File Access - Logic Gate Authentication Required">
+    <title>Secure Vault | IntelliTrap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="scanline"></div>
+
+    <div class="screen active" id="screenExplorer">
+        <div class="explorer">
+            <div class="explorer-titlebar">
+                <div class="titlebar-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div class="titlebar-path">
+                    <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M3 5C3 3.9 3.9 3 5 3H8L10 5H15C16.1 5 17 5.9 17 7V15C17 16.1 16.1 17 15 17H5C3.9 17 3 16.1 3 15V5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                    <span>/home/user/secure-vault/</span>
+                </div>
+                <div class="titlebar-actions">
+                    <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><circle cx="10" cy="5" r="1.5" fill="currentColor"/><circle cx="10" cy="10" r="1.5" fill="currentColor"/><circle cx="10" cy="15" r="1.5" fill="currentColor"/></svg>
+                </div>
+            </div>
+
+            <div class="explorer-body">
+                <aside class="explorer-sidebar">
+                    <div class="sidebar-section">
+                        <span class="sidebar-label">QUICK ACCESS</span>
+                        <div class="sidebar-item active">
+                            <svg viewBox="0 0 20 20" fill="none" width="15" height="15"><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 7H17" stroke="currentColor" stroke-width="1"/></svg>
+                            <span>Secure Vault</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <svg viewBox="0 0 20 20" fill="none" width="15" height="15"><path d="M10 3L17 7V13L10 17L3 13V7L10 3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                            <span>Recent</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <svg viewBox="0 0 20 20" fill="none" width="15" height="15"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M10 6V10L13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <span>History</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <span class="sidebar-label">STORAGE</span>
+                        <div class="storage-bar">
+                            <div class="storage-fill" style="width:67%"></div>
+                        </div>
+                        <span class="storage-text">2.4 GB / 3.6 GB used</span>
+                    </div>
+                </aside>
+
+                <div class="explorer-content">
+                    <div class="content-header">
+                        <h2 class="content-title">Secure Vault</h2>
+                        <span class="content-count">3 items</span>
+                    </div>
+
+                    <div class="file-grid">
+                        <div class="file-item" id="folderPublic">
+                            <div class="file-icon folder-icon">
+                                <svg viewBox="0 0 64 64" fill="none">
+                                    <path d="M8 16C8 13.8 9.8 12 12 12H24L28 16H52C54.2 16 56 17.8 56 20V48C56 50.2 54.2 52 52 52H12C9.8 52 8 50.2 8 48V16Z" fill="#1e3a5f" stroke="#3a7bd5" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <span class="file-name">public_reports</span>
+                            <span class="file-meta">4 files • 1.2 MB</span>
+                        </div>
+
+                        <div class="file-item" id="fileReadme">
+                            <div class="file-icon doc-icon">
+                                <svg viewBox="0 0 64 64" fill="none">
+                                    <path d="M16 8H40L52 20V54C52 55.1 51.1 56 50 56H16C14.9 56 14 55.1 14 54V10C14 8.9 14.9 8 16 8Z" fill="#0f1d33" stroke="#3a5a7a" stroke-width="2"/>
+                                    <polyline points="40,8 40,20 52,20" stroke="#3a5a7a" stroke-width="2"/>
+                                    <line x1="22" y1="30" x2="44" y2="30" stroke="#3a5a7a" stroke-width="1.5"/>
+                                    <line x1="22" y1="36" x2="44" y2="36" stroke="#3a5a7a" stroke-width="1.5"/>
+                                    <line x1="22" y1="42" x2="36" y2="42" stroke="#3a5a7a" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <span class="file-name">readme.txt</span>
+                            <span class="file-meta">2 KB • Text</span>
+                        </div>
+
+                        <div class="file-item locked-file" id="lockedFile" tabindex="0">
+                            <div class="locked-badge">
+                                <svg viewBox="0 0 20 20" fill="none" width="12" height="12"><rect x="4" y="9" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 9V6C7 4.3 8.3 3 10 3C11.7 3 13 4.3 13 6V9" stroke="currentColor" stroke-width="1.5"/></svg>
+                                <span>LOCKED</span>
+                            </div>
+                            <div class="file-icon locked-icon">
+                                <svg viewBox="0 0 64 64" fill="none">
+                                    <path d="M8 16C8 13.8 9.8 12 12 12H24L28 16H52C54.2 16 56 17.8 56 20V48C56 50.2 54.2 52 52 52H12C9.8 52 8 50.2 8 48V16Z" fill="#1a0a1e" stroke="#ff3366" stroke-width="2"/>
+                                    <rect x="24" y="30" width="16" height="12" rx="2" fill="none" stroke="#ff3366" stroke-width="2"/>
+                                    <path d="M28 30V26C28 23.8 29.8 22 32 22C34.2 22 36 23.8 36 26V30" fill="none" stroke="#ff3366" stroke-width="2"/>
+                                    <circle cx="32" cy="36" r="2" fill="#ff3366"/>
+                                </svg>
+                                <div class="locked-pulse"></div>
+                            </div>
+                            <span class="file-name locked-name">classified_intel.dat</span>
+                            <span class="file-meta locked-meta">Encrypted • Auth Required</span>
+                            <div class="locked-tooltip">
+                                <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M10 3C6.1 3 3 6.1 3 10C3 13.9 6.1 17 10 17C13.9 17 17 13.9 17 10C17 6.1 13.9 3 10 3Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 13V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="7" r="0.75" fill="currentColor"/></svg>
+                                Double-click to attempt access
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="explorer-statusbar">
+                        <span>
+                            <svg viewBox="0 0 20 20" fill="none" width="12" height="12"><path d="M10 3C6.1 3 3 6.1 3 10C3 13.9 6.1 17 10 17C13.9 17 17 13.9 17 10C17 6.1 13.9 3 10 3Z" stroke="currentColor" stroke-width="1.5"/><path d="M3 10H17" stroke="currentColor" stroke-width="1"/><path d="M10 3C12 5.5 12.5 8 12.5 10C12.5 12 12 14.5 10 17" stroke="currentColor" stroke-width="1"/><path d="M10 3C8 5.5 7.5 8 7.5 10C7.5 12 8 14.5 10 17" stroke="currentColor" stroke-width="1"/></svg>
+                            Secure Connection
+                        </span>
+                        <span>AES-256 Encrypted</span>
+                        <span id="currentTime"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="screen" id="screenChallenge">
+        <div class="challenge-wrap">
+            <header class="ch-header">
+                <button class="ch-back-btn" id="backToExplorer" aria-label="Back to explorer">
+                    <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M15 10H5M5 10L9 6M5 10L9 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="ch-header-info">
+                    <div class="ch-header-title">
+                        <svg class="ch-lock-icon" viewBox="0 0 24 24" fill="none" width="20" height="20">
+                            <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M8 11V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V11" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <h1>AUTHENTICATION REQUIRED</h1>
+                    </div>
+                    <p class="ch-header-sub">Solve the logic gate circuit to unlock <strong>classified_intel.dat</strong></p>
+                </div>
+                <div class="ch-level-badge">
+                    <span class="ch-level-label">LEVEL</span>
+                    <span class="ch-level-num" id="chLevelNum">1</span>
+                    <span class="ch-level-of">/ 3</span>
+                </div>
+            </header>
+
+            <div class="ch-body">
+                <div class="ch-info-panel">
+                    <div class="ch-mission">
+                        <span class="ch-mission-label">MISSION</span>
+                        <h3 class="ch-mission-title" id="chMissionTitle">BINARY HANDSHAKE</h3>
+                        <p class="ch-mission-desc" id="chMissionDesc">Set the inputs so the circuit output matches the target.</p>
+                    </div>
+
+                    <div class="ch-target-box">
+                        <span class="ch-target-label">TARGET OUTPUT</span>
+                        <div class="ch-target-val" id="chTargetVal">1</div>
+                    </div>
+
+                    <div class="ch-current-box">
+                        <span class="ch-current-label">YOUR OUTPUT</span>
+                        <div class="ch-current-val" id="chCurrentVal">0</div>
+                    </div>
+
+                    <div class="ch-hint-box" id="chHintBox">
+                        <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M10 3C6.13 3 3 6.13 3 10C3 13.87 6.13 17 10 17C13.87 17 17 13.87 17 10C17 6.13 13.87 3 10 3Z" stroke="currentColor" stroke-width="1.5"/><path d="M8 8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 9.1 11.1 10 10 10V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="14" r="0.75" fill="currentColor"/></svg>
+                        <span id="chHintText">AND gate outputs 1 only when BOTH inputs are 1</span>
+                    </div>
+
+                    <div class="ch-progress">
+                        <span class="ch-progress-label">PROGRESS</span>
+                        <div class="ch-progress-dots" id="chProgressDots"></div>
+                    </div>
+                </div>
+
+                <div class="ch-circuit" id="chCircuit">
+                    <svg class="ch-wire-layer" id="chWireLayer" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="wireGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                        </defs>
+                    </svg>
+                    <div class="ch-components" id="chComponents"></div>
+                </div>
+
+                <div class="ch-truth-panel" id="chTruthPanel">
+                    <div class="ch-truth-header">
+                        <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="2" y1="7" x2="18" y2="7" stroke="currentColor" stroke-width="1"/><line x1="8" y1="2" x2="8" y2="18" stroke="currentColor" stroke-width="1"/></svg>
+                        TRUTH TABLE
+                    </div>
+                    <div class="ch-truth-body" id="chTruthBody"></div>
+                </div>
+            </div>
+
+            <div class="ch-footer">
+                <button class="ch-btn ch-btn-reset" id="chResetBtn">
+                    <svg viewBox="0 0 20 20" fill="none" width="15" height="15"><path d="M3 10C3 6.13 6.13 3 10 3C13.87 3 17 6.13 17 10C17 13.87 13.87 17 10 17C7.56 17 5.42 15.77 4.13 13.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><polyline points="3,8 3,14 9,14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    RESET
+                </button>
+                <button class="ch-btn ch-btn-verify" id="chVerifyBtn">
+                    <svg viewBox="0 0 20 20" fill="none" width="15" height="15"><polyline points="4,10 8,14 16,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    VERIFY CIRCUIT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="screen" id="screenFile">
+        <div class="file-viewer">
+            <div class="viewer-titlebar">
+                <div class="titlebar-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div class="viewer-title-info">
+                    <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M4 3H12L16 7V17C16 17.6 15.6 18 15 18H4C3.4 18 3 17.6 3 17V4C3 3.4 3.4 3 4 3Z" stroke="currentColor" stroke-width="1.5"/><polyline points="12,3 12,7 16,7" stroke="currentColor" stroke-width="1.5"/></svg>
+                    <span>classified_intel.dat — <em>DECRYPTED</em></span>
+                </div>
+                <div class="viewer-badges">
+                    <span class="viewer-badge verified">
+                        <svg viewBox="0 0 20 20" fill="none" width="12" height="12"><polyline points="4,10 8,14 16,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        VERIFIED
+                    </span>
+                    <span class="viewer-badge decrypted">🔓 DECRYPTED</span>
+                </div>
+            </div>
+
+            <div class="viewer-body" id="viewerBody">
+                <div class="viewer-banner">
+                    <div class="banner-icon">
+                        <svg viewBox="0 0 60 60" fill="none">
+                            <circle cx="30" cy="30" r="26" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="30" cy="30" r="20" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/>
+                            <path d="M18 30L27 39L42 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="banner-text">
+                        <h2>ACCESS GRANTED</h2>
+                        <p>All logic-gate authentication layers passed. File decrypted successfully.</p>
+                    </div>
+                </div>
+
+                <div class="viewer-document">
+                    <div class="doc-header">
+                        <div class="doc-classification">TOP SECRET</div>
+                        <h3 class="doc-title">VARMA FAMILY WELFARE &amp; PROPERTY TRUST</h3>
+                        <div class="doc-meta">
+                            <span>Prepared By: Legal Counsel for Rajendra Varma</span>
+                            <span>Subject: Immediate Independent Financial Review</span>
+                        </div>
+                    </div>
+
+                    <div class="doc-body">
+                        <section class="doc-section">
+                            <h4>Executive Summary</h4>
+                            <p>Per the instructions of the Primary Trustee, Rajendra Varma, an independent financial auditor will conduct a comprehensive annual review of the Varma Family Welfare &amp; Property Trust, established in 2012. The prior system of internal family-level administration with weak external oversight has been suspended pending verification.</p>
+                            <p>Areas of immediate concern include trust accounts, property transactions, business transfers and loans, and charitable distributions. The review will also assess all financial obligations, contracts, invoices, payments, and transfers connected to the Karaikal Development Project.</p>
+                            <p><strong>Directive:</strong> No further payments should be made until this review is complete. All records, associated companies, and individuals must be preserved. Initial access vectors were confirmed through spear-phishing campaigns using weaponized PDF attachments exploiting CVE-2026-41773, tied to the threat actor designation <span class="redacted-highlight">APT-PHANTOM-9</span>.</p>
+                        </section>
+
+                        <section class="doc-section">
+                            <h4>Immediate Review Scope</h4>
+                            <ul class="doc-list">
+                                <li>Trust accounts and property transactions</li>
+                                <li>Business transfers and loans</li>
+                                <li>Charitable distributions</li>
+                                <li>All financial obligations linked to the Karaikal Development Project</li>
+                            </ul>
+                        </section>
+
+                        <section class="doc-section">
+                            <h4>Indicators of Compromise (IOCs)</h4>
+                            <table class="doc-table">
+                                <thead>
+                                    <tr><th>Type</th><th>Value</th><th>Confidence</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>IP</td><td><code>198.51.100.23</code></td><td class="confidence-high">HIGH</td></tr>
+                                    <tr><td>Domain</td><td><code>cdn-update.syslogx.net</code></td><td class="confidence-high">HIGH</td></tr>
+                                    <tr><td>SHA-256</td><td><code>a3f2b8c1...d9e7</code></td><td class="confidence-med">MEDIUM</td></tr>
+                                    <tr><td>C2 Server</td><td><code>45.33.32.156:8443</code></td><td class="confidence-high">HIGH</td></tr>
+                                </tbody>
+                            </table>
+                        </section>
+
+                        <section class="doc-section">
+                            <h4>Recommended Actions</h4>
+                            <ul class="doc-list">
+                                <li>Block all listed IOCs at the perimeter firewall and DNS layer.</li>
+                                <li>Deploy YARA rule <code>APT_PHANTOM9_Loader_v2</code> across all endpoints.</li>
+                                <li>Rotate credentials for all service accounts flagged in honeypot telemetry.</li>
+                                <li>Escalate to the CISO for cross-sector threat sharing via ISAC channels.</li>
+                            </ul>
+                        </section>
+
+                        <section class="doc-section">
+                            <h4>Honeypot Telemetry</h4>
+                            <p>IntelliTrap deception nodes captured <strong>47 unique sessions</strong> from the threat actor over a 72-hour window. Behavioral analysis confirms automated reconnaissance followed by manual exploitation attempts. Full packet captures have been archived under case <span class="redacted-highlight">HC-2026-09-0471</span>.</p>
+                        </section>
+                    </div>
+
+                    <div class="doc-footer">
+                        <div class="doc-classification">TOP SECRET // INTELLITRAP // NOFORN</div>
+                        <p class="doc-disclaimer">This document contains classified information. Unauthorized disclosure is subject to criminal penalties under applicable law.</p>
+                    </div>
+                </div>
+
+                <button class="ch-btn ch-btn-verify viewer-back-btn" id="viewerBackBtn">
+                    <svg viewBox="0 0 20 20" fill="none" width="15" height="15"><path d="M15 10H5M5 10L9 6M5 10L9 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    BACK TO VAULT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="levelModal">
+            <canvas id="particleCanvas" class="particle-canvas"></canvas>
+            <div class="modal-icon" id="modalIcon">
+                <svg viewBox="0 0 80 80" fill="none">
+                    <circle cx="40" cy="40" r="36" stroke="#00ff88" stroke-width="2.5"/>
+                    <polyline points="24,40 36,52 56,32" stroke="#00ff88" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2 class="modal-title" id="modalTitle">LEVEL COMPLETE</h2>
+            <p class="modal-message" id="modalMessage">Circuit verified successfully.</p>
+            <button class="ch-btn ch-btn-verify" id="modalBtn">NEXT LEVEL →</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
